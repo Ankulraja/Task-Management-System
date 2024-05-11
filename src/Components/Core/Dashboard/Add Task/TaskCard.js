@@ -6,6 +6,8 @@ import { MdOutlineModeEditOutline } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { setEditTask, setRefersh } from "../../../../Slice/taskSlice";
+import {REACT_BASE_URL} from "../../../../Urls"
+
 const TaskCard = ({ value }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const { refersh } = useSelector((state) => state.task);
@@ -31,7 +33,7 @@ const TaskCard = ({ value }) => {
     try {
       var toastId = toast.loading("Deleting Task...");
       const result = await axios.post(
-        `http://localhost:4000/api/v1/deleteTask`,
+        `${REACT_BASE_URL}/deleteTask`,
         { taskId: value._id }
       );
       console.log("result", result.data);

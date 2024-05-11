@@ -3,14 +3,15 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import DashCard from "../Dash/DashCard";
 import { useSelector } from "react-redux";
-
+import {REACT_BASE_URL} from "../../../../Urls"
 const Dash = () => {
   const [taskData, setTaskData] = useState([]);
   const {refersh} = useSelector((state)=>state.task)
   const callgetAllTasks = async () => {
     try {
-     
-      const result = await axios.get(`http://localhost:4000/api/v1/getAllTask`);
+       console.log("yaha aaya")
+      const result = await axios.get(`${REACT_BASE_URL}/getAllTask`);
+      console.log("call complete")
       setTaskData(result.data.allTask.reverse()); 
  
     } catch (err) {

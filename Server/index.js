@@ -12,12 +12,17 @@ app.use(
     credentials: true,
   })
 );
+
+app.use("/api/v1", taskRouter);
+
+
 app.use("/",(req,res)=>{
   res.send("Hello");
 })
 const PORT = process.env.PORT || 4000;
 dbConnect();
-app.use("/api/v1", taskRouter);
+
+
 app.listen(PORT, () => {
   console.log("listening on port", PORT);
 });

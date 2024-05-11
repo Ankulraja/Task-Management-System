@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { setAllTask } from "../../../../Slice/taskSlice";
 import TaskCard from "./TaskCard";
+import {REACT_BASE_URL} from "../../../../Urls"
 
 const ViewTask = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const ViewTask = () => {
   const callgetAllTasks = async () => {
     try {
       var toastId = toast.loading("Loading...");
-      const result = await axios.get(`http://localhost:4000/api/v1/getAllTask`);
+      const result = await axios.get(`${REACT_BASE_URL}/getAllTask`);
       setTaskData(result.data.allTask.reverse()); // Reverse the taskData array
       toast.dismiss(toastId);
     } catch (err) {

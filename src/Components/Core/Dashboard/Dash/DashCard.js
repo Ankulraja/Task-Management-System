@@ -6,6 +6,7 @@ import { AiFillEye } from "react-icons/ai";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { setRefersh } from "../../../../Slice/taskSlice";
+import {REACT_BASE_URL} from "../../../../Urls"
 const DashCard = ({ value }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const { refersh } = useSelector((state) => state.task);
@@ -37,7 +38,7 @@ const DashCard = ({ value }) => {
       setRead(!read);
       try {
         const result = await axios.post(
-          `http://localhost:4000/api/v1/updateStatus`,
+          `${REACT_BASE_URL}/updateStatus`,
           {
             status: status,
             taskId: value._id,
@@ -60,7 +61,7 @@ const DashCard = ({ value }) => {
     }
     try {
       const result = await axios.post(
-        `http://localhost:4000/api/v1/updateStatus`,
+        `${REACT_BASE_URL}/updateStatus`,
         {
           status: status,
           taskId: value._id,

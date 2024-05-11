@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { MdReplay } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { setEditTask, setRefersh } from "../../../../Slice/taskSlice";
+import {REACT_BASE_URL} from "../../../../Urls"
 
 const CreateTask = () => {
   const { editTask } = useSelector((state) => state.task);
@@ -47,7 +48,7 @@ const CreateTask = () => {
       try {
         var toastId = toast.loading("Updating Task...");
         const result = await axios.post(
-          `http://localhost:4000/api/v1/updateTask`,
+          `${REACT_BASE_URL}/updateTask`,
           {
             title: formData.title,
             description: formData.description,
@@ -66,7 +67,7 @@ const CreateTask = () => {
       try {
         var toastId = toast.loading("Creating Task...");
         const result = await axios.post(
-          `http://localhost:4000/api/v1/createTask`,
+          `${REACT_BASE_URL}/createTask`,
           formData
         );
         console.log("result", result.data);
