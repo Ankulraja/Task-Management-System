@@ -11,6 +11,7 @@ const Dash = () => {
     try {
        console.log("yaha aaya")
       const result = await axios.get(`${REACT_BASE_URL}/getAllTask`);
+      console.log("result",result)
       console.log("call complete")
       setTaskData(result.data.allTask.reverse()); 
  

@@ -16,12 +16,12 @@ app.use(cors({
 //   credentials: true
 // }));
 
-app.use("/api/v1", taskRouter);
+app.use("/", taskRouter);
 
 
-app.use("/",(req,res)=>{
-  res.send("Hello");
-})
+// app.use("/",(req,res)=>{
+//   res.send("Hello");
+// })
 const PORT = process.env.PORT || 4000;
 dbConnect();
 
