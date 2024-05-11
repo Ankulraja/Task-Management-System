@@ -16,7 +16,7 @@ app.use(cors({
 //   credentials: true
 // }));
 
-app.use("/", taskRouter);
+app.use("/api/v1", taskRouter);
 
 
 // app.use("/",(req,res)=>{
