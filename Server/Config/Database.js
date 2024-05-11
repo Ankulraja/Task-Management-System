@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const dbConnect =() => {
   mongoose
-    .connect(`mongodb+srv://Ankulraja2003:NYWs4vVtlTyFKoos@cluster0.i8hr5er.mongodb.net/Task-Management`, {
+    .connect(process.env.DATABASE_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
