@@ -8,7 +8,7 @@ const cors = require("cors");
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://task-management-system-nine-khaki.vercel.app/dashboard/add-task",
+    origin: "http://localhost:3000",
     credentials: true,
   })
 );
