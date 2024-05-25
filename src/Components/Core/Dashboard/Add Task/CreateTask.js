@@ -43,7 +43,15 @@ const CreateTask = () => {
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    console.log("formData", formData);
+    console.log("formData", new Date(formData.datetime).getTime());
+    const taskDateTime = new Date(formData.datetime).getTime();
+    const currentTime = Date.now();
+  
+    // Check if the task datetime is in the past
+    if (taskDateTime < currentTime) {
+      toast.error("Submission Date less than Current time");
+      return;
+    }
     if (editTask) {
       try {
         var toastId = toast.loading("Updating Task...");
@@ -81,9 +89,9 @@ const CreateTask = () => {
   };
 
   return (
-    <div className="w-full flex justify-center py-10">
-      <div className="w-5/12 max-lg:w-7/12 max-md:w-9/12 max-sm:w-11/12 border">
-        <div className="w-full h-14 bg-black text-white flex justify-end items-center text-3xl px-5">
+    <div className="w-full flex justify-center py-10 ">
+      <div className="w-full max-lg:w-7/12 max-md:w-9/12 max-sm:w-11/12 border rounded-xl">
+        <div className="w-full h-14 rounded-t-xl bg-gray-800 text-white flex justify-end items-center text-3xl px-5">
           <button
             onClick={replayHandler}
             className="active:-rotate-45 transition-all duration-200"
@@ -113,17 +121,17 @@ const CreateTask = () => {
             <textarea
               name="description"
               placeholder="Enter Task Description"
-              rows={7}
+              rows={2}
               required
               value={formData.description}
               onChange={changeHandler}
               className="w-full py-5 rounded-lg bg-gray-300 px-5"
             ></textarea>
           </label>
-          <div className="flex  justify-center items-end gap-10">
+          <div className="flex justify-center items-end gap-10 max-md:gap-5 max-sm:gap-1">
             <label className="flex w-2/3 flex-col gap-1">
               <p className="text-lg">
-                Date <sup className="text-red-700">*</sup>
+                Date of Submission<sup className="text-red-700">*</sup>
                 <input
                   type="datetime-local"
                   name="datetime"

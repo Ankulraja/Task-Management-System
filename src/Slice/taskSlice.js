@@ -6,7 +6,7 @@ const initialState = {
   token: false,
   editTask: localStorage.getItem("editTask")
     ? JSON.parse(localStorage.getItem("editTask"))
-    : [],
+    : null,
 };
 
 const taskSlice = createSlice({

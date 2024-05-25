@@ -76,7 +76,7 @@ const DashCard = ({ value }) => {
   useEffect(() => {}, [refersh]);
   return (
     <div
-      className={`w-[500px] flex flex-wrap rounded-lg 
+      className={`w-[500px] max-md:text-[14px]  flex flex-wrap rounded-lg 
     ${
       read || value.status === "done" || value.status === "read"
         ? done || value.status === "done"
@@ -99,10 +99,10 @@ const DashCard = ({ value }) => {
        flex justify-center items-center text-white px-5`}
       >
         <div className="w-3/4">
-          <p className="text-[14px] text-white">
+          <p className="text-[14px] max-md:text-[14px] max-sm:text-[12px]  text-white">
             Due Date: <span>{extractedDate}</span>
           </p>
-          <p className="text-[14px] text-white">
+          <p className="text-[14px] max-md:text-[14px] max-sm:text-[12px]  text-white">
             Due Time: <span>{extractedTime}</span>
           </p>
         </div>
@@ -110,10 +110,10 @@ const DashCard = ({ value }) => {
         <div className="w-1/4 justify-end ">
           <p
             onClick={readHandler}
-            className="flex gap-2 justify-center cursor-pointer items-center"
+            className="flex gap-2 justify-center max-md:text-[14px] max-sm:text-[12px] cursor-pointer items-center"
           >
             Mark :{" "}
-            <span className="text-xl">
+            <span className="text-xl max-md:text-[14px] max-sm:text-[12px]">
               {read ? (
                 <AiFillEye></AiFillEye>
               ) : (

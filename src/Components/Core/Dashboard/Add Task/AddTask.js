@@ -8,10 +8,10 @@ const AddTask = () => {
        from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text">
         You Task
       </h1>
-      <div className=" border my-4">
+      <div className="  my-4">
         <ViewTask></ViewTask>
       </div>
-      <div className="h-1/2 border">
+      <div className="h-1/2 w-full ">
         <CreateTask></CreateTask>
       </div>
     </div>
